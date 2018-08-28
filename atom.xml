@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-08-28T06:58:32.363Z</updated>
+  <updated>2018-08-28T08:48:55.808Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>js判断对象是否为空对象的几种方法</title>
+    <link href="http://yoursite.com/2018/08/28/object_is_empty/"/>
+    <id>http://yoursite.com/2018/08/28/object_is_empty/</id>
+    <published>2018-08-28T08:48:55.797Z</published>
+    <updated>2018-08-28T08:48:55.808Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>1.将json对象转化为json字符串，再判断该字符串是否为”{}”</strong><br>var data = {};<br>var b = (JSON.stringify(data) == “{}”);<br>alert(b);//true</p><p><strong>2.for in 循环判断</strong><br>var obj = {};<br>var b = function() {<br>for(var key in obj) {<br>return false;<br>}<br>return true;<br>}<br>alert(b());//true</p><p><strong>3.jquery的isEmptyObject方法</strong><br>此方法是jquery将2方法(for in)进行封装，使用时需要依赖jquery<br>var data = {};<br>var b = $.isEmptyObject(data);<br>alert(b);//true</p><p><strong>4.Object.getOwnPropertyNames()方法</strong><br>此方法是使用Object对象的getOwnPropertyNames方法，获取到对象中的属性名，存到一个数组中，返回数组对象，我们可以通过判断数组的length来判断此对象是否为空<br>注意：此方法不兼容ie8，其余浏览器没有测试<br>var data = {};<br>var arr = Object.getOwnPropertyNames(data);<br>alert(arr.length == 0);//true<br><strong>5.使用ES6的Object.keys()方法</strong><br>与4方法类似，是ES6的新方法, 返回值也是对象中属性名组成的数组<br>var data = {};<br>var arr = Object.keys(data);<br>alert(arr.length == 0);//true</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;strong&gt;1.将json对象转化为json字符串，再判断该字符串是否为”{}”&lt;/strong&gt;&lt;br&gt;var data = {};&lt;br&gt;var b = (JSON.stringify(data) == “{}”);&lt;br&gt;alert(b);//true&lt;/p&gt;
+&lt;
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>js的深拷贝与浅拷贝</title>
@@ -51,28 +73,6 @@
       
       
         &lt;h2 id=&quot;1-typeof&quot;&gt;&lt;a href=&quot;#1-typeof&quot; class=&quot;headerlink&quot; title=&quot;1.typeof&quot;&gt;&lt;/a&gt;1.typeof&lt;/h2&gt;&lt;p&gt;typeof是一个操作符，其右侧跟一个一元表达式，并返回这个表达式的数据类型。返回的结果用该
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>js判断对象是否为空对象的几种方法</title>
-    <link href="http://yoursite.com/2018/08/28/object_is_empty/"/>
-    <id>http://yoursite.com/2018/08/28/object_is_empty/</id>
-    <published>2018-08-28T02:56:05.038Z</published>
-    <updated>2018-08-28T02:56:05.041Z</updated>
-    
-    <content type="html"><![CDATA[<p>1.将json对象转化为json字符串，再判断该字符串是否为”{}”<br>var data = {};<br>var b = (JSON.stringify(data) == “{}”);<br>alert(b);//true</p><p>2.for in 循环判断<br>var obj = {};<br>var b = function() {<br>for(var key in obj) {<br>return false;<br>}<br>return true;<br>}<br>alert(b());//true</p><p>3.jquery的isEmptyObject方法<br>此方法是jquery将2方法(for in)进行封装，使用时需要依赖jquery<br>var data = {};<br>var b = $.isEmptyObject(data);<br>alert(b);//true</p><p>4.Object.getOwnPropertyNames()方法<br>此方法是使用Object对象的getOwnPropertyNames方法，获取到对象中的属性名，存到一个数组中，返回数组对象，我们可以通过判断数组的length来判断此对象是否为空<br>注意：此方法不兼容ie8，其余浏览器没有测试<br>var data = {};<br>var arr = Object.getOwnPropertyNames(data);<br>alert(arr.length == 0);//true</p><p>5.使用ES6的Object.keys()方法<br>与4方法类似，是ES6的新方法, 返回值也是对象中属性名组成的数组<br>var data = {};<br>var arr = Object.keys(data);<br>alert(arr.length == 0);//true</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;1.将json对象转化为json字符串，再判断该字符串是否为”{}”&lt;br&gt;var data = {};&lt;br&gt;var b = (JSON.stringify(data) == “{}”);&lt;br&gt;alert(b);//true&lt;/p&gt;
-&lt;p&gt;2.for in 循环判断&lt;b
       
     
     </summary>

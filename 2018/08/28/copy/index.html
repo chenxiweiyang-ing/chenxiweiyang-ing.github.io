@@ -81,17 +81,17 @@
 
 
 
-<meta name="description" content="Vue-cli是vue的一个脚手架，我们可以通过它来构建我们的前端项目安装vue-cli的步骤   安装nodeJS(已经集成npm)  node –v ; npm –v查看是否成功安装  配置环境变量，找到npm所在的路径（\username\AppData\Roaming\npm）文件可能隐藏,将其放在path中（一般会自动添加）  安装vue-cli： npm install –g vue-">
+<meta name="description" content="1.两类数据存储a.基本类型–名值存储在栈内存中，例如let a=1,当你b=a复制时，栈内存会新开辟一个内存,所以当你此时修改a=2，对b并不会造成影响;b.引用数据类型–名存在栈内存中，值存在于堆内存中，但是栈内存会提供一个引用的地址指向堆内存中的值,b.引用数据类型–名存在栈内存中，值存在于堆内存中，但是栈内存会提供一个引用的地址指向堆内存中的值.2.深拷贝1）Array的slice和con">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用Vue-cli搭建前端项目">
-<meta property="og:url" content="http://yoursite.com/2018/08/24/vue-cli/index.html">
+<meta property="og:title" content="js的深拷贝与浅拷贝">
+<meta property="og:url" content="http://yoursite.com/2018/08/28/copy/index.html">
 <meta property="og:site_name" content="前端笔记">
-<meta property="og:description" content="Vue-cli是vue的一个脚手架，我们可以通过它来构建我们的前端项目安装vue-cli的步骤   安装nodeJS(已经集成npm)  node –v ; npm –v查看是否成功安装  配置环境变量，找到npm所在的路径（\username\AppData\Roaming\npm）文件可能隐藏,将其放在path中（一般会自动添加）  安装vue-cli： npm install –g vue-">
+<meta property="og:description" content="1.两类数据存储a.基本类型–名值存储在栈内存中，例如let a=1,当你b=a复制时，栈内存会新开辟一个内存,所以当你此时修改a=2，对b并不会造成影响;b.引用数据类型–名存在栈内存中，值存在于堆内存中，但是栈内存会提供一个引用的地址指向堆内存中的值,b.引用数据类型–名存在栈内存中，值存在于堆内存中，但是栈内存会提供一个引用的地址指向堆内存中的值.2.深拷贝1）Array的slice和con">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-24T10:35:16.418Z">
+<meta property="og:updated_time" content="2018-08-28T06:54:04.414Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="使用Vue-cli搭建前端项目">
-<meta name="twitter:description" content="Vue-cli是vue的一个脚手架，我们可以通过它来构建我们的前端项目安装vue-cli的步骤   安装nodeJS(已经集成npm)  node –v ; npm –v查看是否成功安装  配置环境变量，找到npm所在的路径（\username\AppData\Roaming\npm）文件可能隐藏,将其放在path中（一般会自动添加）  安装vue-cli： npm install –g vue-">
+<meta name="twitter:title" content="js的深拷贝与浅拷贝">
+<meta name="twitter:description" content="1.两类数据存储a.基本类型–名值存储在栈内存中，例如let a=1,当你b=a复制时，栈内存会新开辟一个内存,所以当你此时修改a=2，对b并不会造成影响;b.引用数据类型–名存在栈内存中，值存在于堆内存中，但是栈内存会提供一个引用的地址指向堆内存中的值,b.引用数据类型–名存在栈内存中，值存在于堆内存中，但是栈内存会提供一个引用的地址指向堆内存中的值.2.深拷贝1）Array的slice和con">
 
 
 
@@ -121,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/08/24/vue-cli/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/08/28/copy/"/>
 
 
 
 
 
-  <title>使用Vue-cli搭建前端项目 | 前端笔记</title>
+  <title>js的深拷贝与浅拷贝 | 前端笔记</title>
   
 
 
@@ -244,7 +244,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/24/vue-cli/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/28/copy/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Yajuan Wang">
@@ -261,7 +261,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">使用Vue-cli搭建前端项目</h1>
+          <h1 class="post-title" itemprop="name headline">js的深拷贝与浅拷贝</h1>
         
 
         <div class="post-meta">
@@ -273,8 +273,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-24T18:35:16+08:00">
-                2018-08-24
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-28T14:54:04+08:00">
+                2018-08-28
               </time>
             
 
@@ -311,16 +311,13 @@
       
 
       
-        <p>Vue-cli是vue的一个脚手架，我们可以通过它来构建我们的前端项目<br>安装vue-cli的步骤 </p>
-<ol>
-<li>安装nodeJS(已经集成npm) </li>
-<li>node –v ; npm –v查看是否成功安装 </li>
-<li>配置环境变量，找到npm所在的路径（\username\AppData\Roaming\npm）文件可能隐藏,将其放在path中（一般会自动添加） </li>
-<li>安装vue-cli： npm install –g vue-cli </li>
-<li>创建项目 vue init webpack my-project </li>
-<li>选择项目的一些配置（Y/n）<br>注：<br>npm install -g vue-cli<br>-g表示全局安装, vue-cli是模块,全局安装的模块可以在命令行直接使用.</li>
-</ol>
-<p>vue init webpack my-project<br>创建一个基于”webpack”的项目,后面是项目名,<br>执行命令cd my-project </p>
+        <p><strong>1.两类数据存储</strong><br>a.基本类型–名值存储在栈内存中，例如let a=1,当你b=a复制时，栈内存会新开辟一个内存,所以当你此时修改a=2，对b并不会造成影响;<br>b.引用数据类型–名存在栈内存中，值存在于堆内存中，但是栈内存会提供一个引用的地址指向堆内存中的值,b.引用数据类型–名存在栈内存中，值存在于堆内存中，但是栈内存会提供一个引用的地址指向堆内存中的值.<br><strong>2.深拷贝</strong><br>1）Array的slice和concat方法<br>Array的slice和concat方法都会返回一个新的数组实例，但是这两个方法对于数组中的对象元素却没有执行深复制，而只是复制了引用了，因此这两个方法并不是真正的深复制，<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> a=[0,1,[2,3],4],</span><br><span class="line">        b=a.slice();</span><br><span class="line">a[0]=1;</span><br><span class="line">a[2][0]=1;</span><br><span class="line">console.log(a,b);//a:[1,1,[1,3],4];b:[0,1,[1,3],4]</span><br></pre></td></tr></table></figure></p>
+<p>b对象的一级属性确实不受影响了，但是二级属性还是没能拷贝成功,说明slice根本不是真正的深拷贝。<br>2)递归实现<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> getType(obj)&#123;</span><br><span class="line">var map =&#123;&#125;；</span><br><span class="line">[<span class="string">"Null"</span>,<span class="string">"Undefined"</span>,<span class="string">"Number"</span>,<span class="string">"Boolean"</span>,<span class="string">"String"</span>,<span class="string">"Object"</span>,<span class="string">"Function"</span>,<span class="string">"Array"</span>,<span class="string">"RegExp"</span>,<span class="string">"Date"</span>].forEach(<span class="keyword">function</span>(item)&#123;</span><br><span class="line">           map[<span class="string">"[object "</span>+ item + <span class="string">"]"</span>] = item.toLowerCase();</span><br><span class="line">       &#125;)</span><br><span class="line">       <span class="built_in">return</span> map[Object.prototype.toString.call(obj)];</span><br><span class="line">&#125;</span><br><span class="line">  <span class="keyword">function</span> deepClone(data)&#123;</span><br><span class="line">       var <span class="built_in">type</span> = getType(data);</span><br><span class="line">       var obj;</span><br><span class="line">       <span class="keyword">if</span>(<span class="built_in">type</span> === <span class="string">'array'</span>)&#123;</span><br><span class="line">           obj = [];</span><br><span class="line">       &#125; <span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">type</span> === <span class="string">'object'</span>)&#123;</span><br><span class="line">           obj = &#123;&#125;;</span><br><span class="line">       &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">           //不再具有下一层次</span><br><span class="line">           <span class="built_in">return</span> data;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">if</span>(<span class="built_in">type</span> === <span class="string">'array'</span>)&#123;</span><br><span class="line">           <span class="keyword">for</span>(var i = 0, len = data.length; i &lt; len; i++)&#123;</span><br><span class="line">               obj.push(deepClone(data[i]));</span><br><span class="line">           &#125;</span><br><span class="line">       &#125; <span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">type</span> === <span class="string">'object'</span>)&#123;</span><br><span class="line">           <span class="keyword">for</span>(var key <span class="keyword">in</span> data)&#123;</span><br><span class="line">               obj[key] = deepClone(data[key]);</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="built_in">return</span> obj;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></p>
+<p>3)JSON对象的parse和stringify<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> deepClone(obj)&#123;</span><br><span class="line">    <span class="built_in">let</span> _obj = JSON.stringify(obj),</span><br><span class="line">        objClone = JSON.parse(_obj);</span><br><span class="line">    <span class="built_in">return</span> objClone</span><br><span class="line">&#125;    </span><br><span class="line"><span class="built_in">let</span> a=[0,1,[2,3],4],</span><br><span class="line">    b=deepClone(a);</span><br><span class="line">a[0]=1;</span><br><span class="line">a[2][0]=1;</span><br><span class="line">console.log(a,b);</span><br></pre></td></tr></table></figure></p>
+<p>4)JQ的extend方法<br>$.extend( [deep ], target, object1 [, objectN ] )</p>
+<p>deep表示是否深拷贝，为true为深拷贝，为false，则为浅拷贝</p>
+<p>target Object类型 目标对象，其他对象的成员属性将被附加到该对象上。</p>
+<p>object1  objectN可选。 Object类型 第一个以及第N个被合并的对象。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> a=[0,1,[2,3],4],</span><br><span class="line">    b=$.extend(<span class="literal">true</span>,[],a);</span><br><span class="line">a[0]=1;</span><br><span class="line">a[2][0]=1;</span><br><span class="line">console.log(a,b);</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -345,15 +342,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2018/08/28/data-type/" rel="next" title="判断数据类型的方法">
+                <i class="fa fa-chevron-left"></i> 判断数据类型的方法
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/08/24/blog-creat/" rel="prev" title="hexo搭建个人微博">
-                hexo搭建个人微博 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>

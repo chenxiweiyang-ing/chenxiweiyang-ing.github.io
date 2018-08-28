@@ -84,11 +84,11 @@
 <meta name="description" content="1.typeoftypeof是一个操作符，其右侧跟一个一元表达式，并返回这个表达式的数据类型。返回的结果用该类型的字符串(全小写字母)形式表示，包括以下 6 种：number、boolean、string、object、undefined、function 。12345678910typeof &apos;&apos;; // string 有效typeof 1; // number 有效typeof Symbol(">
 <meta property="og:type" content="article">
 <meta property="og:title" content="判断数据类型的方法">
-<meta property="og:url" content="http://yoursite.com/2018/08/27/data-type/index.html">
+<meta property="og:url" content="http://yoursite.com/2018/08/28/data-type/index.html">
 <meta property="og:site_name" content="前端笔记">
 <meta property="og:description" content="1.typeoftypeof是一个操作符，其右侧跟一个一元表达式，并返回这个表达式的数据类型。返回的结果用该类型的字符串(全小写字母)形式表示，包括以下 6 种：number、boolean、string、object、undefined、function 。12345678910typeof &apos;&apos;; // string 有效typeof 1; // number 有效typeof Symbol(">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-27T02:26:09.448Z">
+<meta property="og:updated_time" content="2018-08-28T03:02:10.022Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="判断数据类型的方法">
 <meta name="twitter:description" content="1.typeoftypeof是一个操作符，其右侧跟一个一元表达式，并返回这个表达式的数据类型。返回的结果用该类型的字符串(全小写字母)形式表示，包括以下 6 种：number、boolean、string、object、undefined、function 。12345678910typeof &apos;&apos;; // string 有效typeof 1; // number 有效typeof Symbol(">
@@ -121,7 +121,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/08/27/data-type/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/08/28/data-type/"/>
 
 
 
@@ -244,7 +244,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/27/data-type/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/28/data-type/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Yajuan Wang">
@@ -273,8 +273,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-27T10:26:09+08:00">
-                2018-08-27
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-28T11:02:10+08:00">
+                2018-08-28
               </time>
             
 
@@ -321,7 +321,7 @@
 </ul>
 <p>其中，null 有属于自己的数据类型 Null ， 引用类型中的 数组、日期、正则 也都有属于自己的具体类型，而 typeof 对于这些类型的处理，只返回了处于其原型链最顶端的 Object 类型，没有错，但不是我们想要的结果。</p>
 <h2 id="2-instanceof"><a href="#2-instanceof" class="headerlink" title="2.instanceof"></a>2.instanceof</h2><p>instanceof 是用来判断 A 是否为 B 的实例，表达式为：A instanceof B，如果 A 是 B 的实例，则返回 true,否则返回 false。 在这里需要特别注意的是：instanceof 检测的是原型。 </p>
-<p>当 A 的 <strong>proto</strong> 指向 B 的 prototype 时，就认为 A 就是 B 的实例，注意：instanceof 后面一定要是对象类型，并且大小写不能错，该方法适合一些条件选择或分支。我们再来看几个例子：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[] instanceof Array; //<span class="literal">true</span></span><br><span class="line">&#123;&#125; instanceof Object;//<span class="literal">true</span></span><br><span class="line">new Date() instanceof Date;//<span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">Person</span></span>()&#123;&#125;;</span><br><span class="line">new Person() instanceof Person;</span><br><span class="line"></span><br><span class="line">[] instanceof Object; //<span class="literal">true</span></span><br><span class="line">new Date() instanceof Object;//<span class="literal">true</span></span><br><span class="line">new Person instanceof Object;//<span class="literal">true</span></span><br></pre></td></tr></table></figure></p>
+<p>当 A 的 <strong>proto</strong> 指向 B 的 prototype 时，就认为 A 就是 B 的实例，注意：instanceof 后面一定要是对象类型，并且大小写不能错，该方法适合一些条件选择或分支。我们再来看几个例子：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[] instanceof Array; //<span class="literal">true</span></span><br><span class="line">&#123;&#125; instanceof Object;//<span class="literal">true</span>(测试结果报错，需要将var a=&#123;&#125;，然后a instanceof Object)</span><br><span class="line">new Date() instanceof Date;//<span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">Person</span></span>()&#123;&#125;;</span><br><span class="line">new Person() instanceof Person;</span><br><span class="line"></span><br><span class="line">[] instanceof Object; //<span class="literal">true</span></span><br><span class="line">new Date() instanceof Object;//<span class="literal">true</span></span><br><span class="line">new Person instanceof Object;//<span class="literal">true</span></span><br></pre></td></tr></table></figure></p>
 <p>虽然 instanceof 能够判断出 [ ] 是Array的实例，但它认为 [ ] 也是Object的实例。因为[] 的 proto 直接指向Array.prototype，间接指向 Object.prototype，所以按照 instanceof 的判断规则，[] 就是Object的实例。因此，instanceof 只能用来判断两个对象是否属于实例关系， 而不能判断一个对象实例具体属于哪种类型。<br>ECMAScript 5 新增了 Array.isArray() 方法。这个方法的目的是最终确定某个值到底是不是数组。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 下面的函数调用都返回 <span class="literal">true</span></span><br><span class="line">Array.isArray([]);</span><br><span class="line">Array.isArray([1]);</span><br><span class="line">Array.isArray(new Array());</span><br></pre></td></tr></table></figure></p>
 <h2 id="3-constructor"><a href="#3-constructor" class="headerlink" title="3.constructor"></a>3.constructor</h2><p>当一个函数 F被定义时，JS引擎会为F添加 prototype 原型，然后再在 prototype上添加一个 constructor 属性，并让其指向 F 的引用。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">alert(c.constructor === Array) ----------&gt; <span class="literal">true</span></span><br><span class="line">alert(d.constructor === Date) -----------&gt; <span class="literal">true</span></span><br><span class="line">alert(e.constructor === Function) -------&gt; <span class="literal">true</span></span><br><span class="line">注意： constructor 在类继承时会出错</span><br><span class="line">eg：</span><br><span class="line">      <span class="keyword">function</span> <span class="function"><span class="title">A</span></span>()&#123;&#125;;</span><br><span class="line">      <span class="keyword">function</span> <span class="function"><span class="title">B</span></span>()&#123;&#125;;</span><br><span class="line">      A.prototype = new B(); //A继承自B</span><br><span class="line">      var aObj = new A();</span><br><span class="line">      alert(aobj.constructor === B) -----------&gt; <span class="literal">true</span>;</span><br><span class="line">      alert(aobj.constructor === A) -----------&gt; <span class="literal">false</span>;</span><br><span class="line">而instanceof方法不会出现该问题，对象直接继承和间接继承的都会报<span class="literal">true</span>：</span><br><span class="line">      alert(aobj instanceof B) ----------------&gt; <span class="literal">true</span>;</span><br><span class="line">      alert(aobj instanceof B) ----------------&gt; <span class="literal">true</span>;</span><br><span class="line">言归正传，解决construtor的问题通常是让对象的constructor手动指向自己：</span><br><span class="line">      aobj.constructor = A; //将自己的类赋值给对象的constructor属性</span><br><span class="line">      alert(aobj.constructor === A) -----------&gt; <span class="literal">true</span>;</span><br><span class="line">      alert(aobj.constructor === B) -----------&gt; <span class="literal">false</span>; //基类不会报<span class="literal">true</span>了;</span><br></pre></td></tr></table></figure></p>
 <h2 id="4-toString"><a href="#4-toString" class="headerlink" title="4.toString"></a>4.toString</h2><p>toString 是 Object 原型对象上的方法，使用 call 来调用该方法会返回调用者的类型字符串，格式为 [object,xxx]，xxx 是调用者的数据类型，包括：String、Number、Boolean、Undefined、Null、Function、Date、Array、RegExp、Error、HTMLDocument 等， 基本上，所有的数据类型都可以通过这个方法获取到<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Object.prototype.toString.call(<span class="string">''</span>) ;   // [object String]</span><br><span class="line">Object.prototype.toString.call(1) ;    // [object Number]</span><br><span class="line">Object.prototype.toString.call(<span class="literal">true</span>) ; // [object Boolean]</span><br><span class="line">Object.prototype.toString.call(Symbol()); //[object Symbol]</span><br><span class="line">Object.prototype.toString.call(undefined) ; // [object Undefined]</span><br><span class="line">Object.prototype.toString.call(null) ; // [object Null]</span><br><span class="line">Object.prototype.toString.call(new Function()) ; // [object Function]</span><br><span class="line">Object.prototype.toString.call(new Date()) ; // [object Date]</span><br><span class="line">Object.prototype.toString.call([]) ; // [object Array]</span><br><span class="line">Object.prototype.toString.call(new RegExp()) ; // [object RegExp]</span><br><span class="line">Object.prototype.toString.call(new Error()) ; // [object Error]</span><br><span class="line">Object.prototype.toString.call(document) ; // [object HTMLDocument]</span><br><span class="line">Object.prototype.toString.call(window) ; //[object global] window是全局对象 global 的引用</span><br></pre></td></tr></table></figure></p>
@@ -354,8 +354,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/08/24/block_center/" rel="next" title="小div在大div里面水平垂直都居中的实现方法">
-                <i class="fa fa-chevron-left"></i> 小div在大div里面水平垂直都居中的实现方法
+              <a href="/2018/08/28/object_is_empty/" rel="next" title="js判断对象是否为空对象的几种方法">
+                <i class="fa fa-chevron-left"></i> js判断对象是否为空对象的几种方法
               </a>
             
           </div>
@@ -364,8 +364,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/08/27/cross-domain/" rel="prev" title="前端跨域的几种方法">
-                前端跨域的几种方法 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/08/28/copy/" rel="prev" title="js的深拷贝与浅拷贝">
+                js的深拷贝与浅拷贝 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -443,7 +443,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

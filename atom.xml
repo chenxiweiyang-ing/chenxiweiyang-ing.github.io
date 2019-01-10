@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-01-03T06:06:48.886Z</updated>
+  <updated>2019-01-10T10:22:09.646Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>前端优化方案</title>
+    <link href="http://yoursite.com/2019/01/10/front-end_optimization/"/>
+    <id>http://yoursite.com/2019/01/10/front-end_optimization/</id>
+    <published>2019-01-10T10:22:09.642Z</published>
+    <updated>2019-01-10T10:22:09.646Z</updated>
+    
+    <content type="html"><![CDATA[<p>前端优化的目的是什么 ?</p><p>　　1.从用户角度而言，优化能够让页面加载得更快、对用户的操作响应得更及时，能够给用户提供更为友好的体验。<br>　　2.从服务商角度而言，优化能够减少页面请求数、或者减小请求所占带宽，能够节省可观的资源。</p><h2 id="1-减少HTTP请求"><a href="#1-减少HTTP请求" class="headerlink" title="1.减少HTTP请求"></a>1.减少HTTP请求</h2><p>1)合并js文件</p><p>2)合并css文件</p><p>3)CSS Sprites合并 CSS图片，减少请求数的又一个好办法。</p><p>4)使用base64表示简单的图</p><h2 id="2-减小资源体积"><a href="#2-减小资源体积" class="headerlink" title="2.减小资源体积"></a>2.减小资源体积</h2><p>1)gzip压缩。gzip压缩主要是针对html文件来说的，它可以将html中重复的部分进行一个打包，多次复用的过程。</p><p>2)js混淆。js的混淆可以有简单的压缩(将空白字符删除)、丑化(丑化的方法，就是将一些变量缩小)、或者可以使用php对js进行混淆加密。</p><p>3)css压缩<br>4)图片压缩。主要也是减小体积，在不影响观感的前提下，尽量压缩图片，使用png等图片格式，减少矢量图、高清图等的使用。</p><h2 id="3-缓存"><a href="#3-缓存" class="headerlink" title="3.缓存"></a>3.缓存</h2><p>1)DNS缓存。由于浏览器会在DNS解析步骤中消耗一定的时间，所以，对于一些高访问量网站来说，做好DNS的缓存工作，就会一定程度上提升网站效率。</p><p>2)CDN部署与缓存。CDN缓存，CDN作为静态资源文件的分发网络，本身就已经提升了，网站静态资源的获取速度，加快网站的加载速度，同时也给静态资源做好缓存工作，有效的利用已缓存的静态资源，加快获取速度。</p><p>3)http缓存。也是给资源设定缓存时间，防止在有效的缓存时间内对资源进行重复的下载，从而提升整体网页的加载速度。通过 HTTP Header中的Expires设置一个很长的过期头 ;变化不频繁而又可能会变的资源可以使用 Last-Modifed来做请求验证。尽可能的让资源能够在缓存中待得更久。</p><h2 id="4-渲染和DOM操作方面"><a href="#4-渲染和DOM操作方面" class="headerlink" title="4.渲染和DOM操作方面"></a>4.渲染和DOM操作方面</h2><p>1)优化网页渲染:css的文件放在头部，js文件放在尾部或者异步,尽量避免內联样式</p><p>将样式表放在头部对于实际页面加载的时间并不能造成太大影响，但是这会减少页面首屏出现的时间，使页面内容逐步呈现，改善用户体验，防止“白屏”。<br>将样式表放在文档底部会阻止浏览器中的内容逐步出现。为了避免当样式变化时重绘页面元素，浏览器会阻塞内容逐步呈现，造成“白屏”。这源自浏览器的行为：如果样式表仍在加载，构建呈现树就是一种浪费，因为所有样式表加载解析完毕之前务虚会之任何东西。</p><p>脚本放在底部对于实际页面加载的时间并不能造成太大影响，但是这会减少页面首屏出现的时间，使页面内容逐步呈现。<br>js的下载和执行会阻塞Dom树的构建（严谨地说是中断了Dom树的更新），所以script标签放在首屏范围内的HTML代码段里会截断首屏的内容。<br>2)DOM操作优化：<br>避免在document上直接进行频繁的DOM操作<br>使用classname代替大量的内联样式修改<br>对于复杂的UI元素，设置position为absolute或fixed<br>尽量使用css动画<br>使用requestAnimationFrame代替setInterval操作<br>适当使用canvas<br>尽量减少css表达式的使用<br>使用事件代理</p><h2 id="5-图片加载处理"><a href="#5-图片加载处理" class="headerlink" title="5.图片加载处理"></a>5.图片加载处理</h2><p>图片懒加载</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;前端优化的目的是什么 ?&lt;/p&gt;
+&lt;p&gt;　　1.从用户角度而言，优化能够让页面加载得更快、对用户的操作响应得更及时，能够给用户提供更为友好的体验。&lt;br&gt;　　2.从服务商角度而言，优化能够减少页面请求数、或者减小请求所占带宽，能够节省可观的资源。&lt;/p&gt;
+&lt;h2 id=&quot;1
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>前端性能——JS的防抖和节流</title>

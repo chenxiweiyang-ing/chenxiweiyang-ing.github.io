@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-01-10T10:22:09.646Z</updated>
+  <updated>2019-01-24T09:20:11.980Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>关于router-link</title>
+    <link href="http://yoursite.com/2019/01/24/router-link/"/>
+    <id>http://yoursite.com/2019/01/24/router-link/</id>
+    <published>2019-01-24T09:20:11.914Z</published>
+    <updated>2019-01-24T09:20:11.980Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="1-vue-router-如何在新窗口打开页面"><a href="#1-vue-router-如何在新窗口打开页面" class="headerlink" title="1.vue-router 如何在新窗口打开页面"></a>1.vue-router 如何在新窗口打开页面</h2><h3 id="1）标签实现新窗口打开："><a href="#1）标签实现新窗口打开：" class="headerlink" title="1）标签实现新窗口打开："></a>1）<router-link>标签实现新窗口打开：</router-link></h3><p>v-link 指令被 <router-link> 组件指令替代，且 <router-link> 不支持 target=”_blank” 属性，如果需要打开一个新窗口必须要用<a>标签，但事实上vue2版本的 <router-link> 是支持  target=”_blank” 属性的(tag=”a”)，如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;router-link target=<span class="string">"_blank"</span> :to=<span class="string">"&#123;path:'/home',query:&#123;id:'1'&#125;&#125;"</span>&gt;新页面打开home页&lt;/router-link&gt;</span><br></pre></td></tr></table></figure></router-link></a></router-link></router-link></p><h3 id="2）编程式导航："><a href="#2）编程式导航：" class="headerlink" title="2）编程式导航："></a>2）编程式导航：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> routeData = this.<span class="variable">$router</span>.resolve(&#123; path: <span class="string">'/reportpreview'</span>, query: &#123;  id: id &#125; &#125;);</span><br><span class="line">或<span class="built_in">let</span> routeData = this.<span class="variable">$router</span>.resolve(&#123; name: <span class="string">'XXX'</span>, params: &#123;  id: id &#125; &#125;);</span><br><span class="line">window.open(routeData.href, <span class="string">'_blank'</span>);</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;1-vue-router-如何在新窗口打开页面&quot;&gt;&lt;a href=&quot;#1-vue-router-如何在新窗口打开页面&quot; class=&quot;headerlink&quot; title=&quot;1.vue-router 如何在新窗口打开页面&quot;&gt;&lt;/a&gt;1.vue-router 如何在新
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>前端优化方案</title>

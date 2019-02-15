@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-01-24T09:20:11.980Z</updated>
+  <updated>2019-02-15T07:34:20.329Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>关于vue2.0的生命周期</title>
+    <link href="http://yoursite.com/2019/02/15/vue-lifecycle/"/>
+    <id>http://yoursite.com/2019/02/15/vue-lifecycle/</id>
+    <published>2019-02-15T07:34:20.327Z</published>
+    <updated>2019-02-15T07:34:20.329Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="1-beforeCreate"><a href="#1-beforeCreate" class="headerlink" title="1.beforeCreate"></a>1.beforeCreate</h2><p>在实例初始化之后，数据观测 (data observer) 和 event/watcher 事件配置之前被调用。(el 和 data 并未初始化 )。</p><p>可以在这加个loading事件。</p><h2 id="2-created"><a href="#2-created" class="headerlink" title="2.created"></a>2.created</h2><p>数据观测 (data observer)，属性和方法的运算，watch/event 事件回调。然而，挂载阶段还没开始，$el 属性目前不可见。（完成data数据初始化，el没有）</p><p>在这结束loading，还做一些初始化，实现函数自执行  ajax操作；可以结合vm.$nextTick使用（dom渲染后的回调函数）</p><h2 id="3-beforeMount"><a href="#3-beforeMount" class="headerlink" title="3.beforeMount"></a>3.beforeMount</h2><p>模板编译/挂载之前，完成了el和data的初始化；双花括号中的值只是占位</p><h2 id="4-mounted"><a href="#4-mounted" class="headerlink" title="4.mounted"></a>4.mounted</h2><p>模板编译/挂载之后,花括号里的值被渲染，Dom操作一般是在mounted钩子函数中进行的。</p><h2 id="5-beforeUpdate"><a href="#5-beforeUpdate" class="headerlink" title="5.beforeUpdate"></a>5.beforeUpdate</h2><p>数据更新时调用，发生在虚拟 DOM 打补丁之前。这里适合在更新之前访问现有的 DOM，比如手动移除已添加的事件监听器。</p><h2 id="6-updated"><a href="#6-updated" class="headerlink" title="6.updated"></a>6.updated</h2><p>由于数据更改导致的虚拟 DOM 重新渲染和打补丁，在这之后会调用该钩子。</p><p>当这个钩子被调用时，组件 DOM 已经更新，所以你现在可以执行依赖于 DOM 的操作。然而在大多数情况下，你应该避免在此期间更改状态。如果要相应状态改变，通常最好使用计算属性或 watcher 取而代之。</p><p>注意 updated 不会承诺所有的子组件也都一起被重绘。如果你希望等到整个视图都重绘完毕，可以用 vm.$nextTick 替换掉 updated：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">updated: <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">  this.<span class="variable">$nextTick</span>(<span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">    // Code that will run only after the</span><br><span class="line">    // entire view has been re-rendered</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><h2 id="7-activated"><a href="#7-activated" class="headerlink" title="7.activated"></a>7.activated</h2><p>keep-alive 组件激活时调用。</p><h2 id="8-deactivated"><a href="#8-deactivated" class="headerlink" title="8.deactivated"></a>8.deactivated</h2><p>keep-alive 组件停用时调用。</p><h2 id="9-beforeDestroy"><a href="#9-beforeDestroy" class="headerlink" title="9.beforeDestroy"></a>9.beforeDestroy</h2><p>实例销毁之前调用。在这一步，实例仍然完全可用。</p><p>可做“你确认删除XX吗”等操作</p><h2 id="10-destroyed"><a href="#10-destroyed" class="headerlink" title="10.destroyed"></a>10.destroyed</h2><p>Vue 实例销毁后调用。调用后，Vue 实例指示的所有东西都会解绑定，所有的事件监听器会被移除，所有的子实例也会被销毁。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;1-beforeCreate&quot;&gt;&lt;a href=&quot;#1-beforeCreate&quot; class=&quot;headerlink&quot; title=&quot;1.beforeCreate&quot;&gt;&lt;/a&gt;1.beforeCreate&lt;/h2&gt;&lt;p&gt;在实例初始化之后，数据观测 (data ob
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>关于router-link</title>

@@ -81,17 +81,17 @@
 
 
 
-<meta name="description" content="一、IE报vuex 或 Promise 错误解决方法：第一步：安装 babel-polyfill 。 babel-polyfill可以模拟ES6使用的环境，可以使用ES6的所有新方法1npm install --save babel-polyfill 第二步：第一种：在webpack.base.config.js文件中，将12345module.exports = &amp;#123;entry: &amp;#1">
+<meta name="description" content="1.beforeCreate在实例初始化之后，数据观测 (data observer) 和 event/watcher 事件配置之前被调用。(el 和 data 并未初始化 )。 可以在这加个loading事件。 2.created数据观测 (data observer)，属性和方法的运算，watch/event 事件回调。然而，挂载阶段还没开始，$el 属性目前不可见。（完成data数据初始化，">
 <meta property="og:type" content="article">
-<meta property="og:title" content="vue项目遇到的兼容问题">
-<meta property="og:url" content="http://yoursite.com/2018/08/28/vuex-compatibility/index.html">
+<meta property="og:title" content="关于vue2.0的生命周期">
+<meta property="og:url" content="http://yoursite.com/2019/02/15/vue-lifecycle/index.html">
 <meta property="og:site_name" content="前端笔记">
-<meta property="og:description" content="一、IE报vuex 或 Promise 错误解决方法：第一步：安装 babel-polyfill 。 babel-polyfill可以模拟ES6使用的环境，可以使用ES6的所有新方法1npm install --save babel-polyfill 第二步：第一种：在webpack.base.config.js文件中，将12345module.exports = &amp;#123;entry: &amp;#1">
+<meta property="og:description" content="1.beforeCreate在实例初始化之后，数据观测 (data observer) 和 event/watcher 事件配置之前被调用。(el 和 data 并未初始化 )。 可以在这加个loading事件。 2.created数据观测 (data observer)，属性和方法的运算，watch/event 事件回调。然而，挂载阶段还没开始，$el 属性目前不可见。（完成data数据初始化，">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-28T01:56:14.406Z">
+<meta property="og:updated_time" content="2019-02-15T07:34:20.329Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="vue项目遇到的兼容问题">
-<meta name="twitter:description" content="一、IE报vuex 或 Promise 错误解决方法：第一步：安装 babel-polyfill 。 babel-polyfill可以模拟ES6使用的环境，可以使用ES6的所有新方法1npm install --save babel-polyfill 第二步：第一种：在webpack.base.config.js文件中，将12345module.exports = &amp;#123;entry: &amp;#1">
+<meta name="twitter:title" content="关于vue2.0的生命周期">
+<meta name="twitter:description" content="1.beforeCreate在实例初始化之后，数据观测 (data observer) 和 event/watcher 事件配置之前被调用。(el 和 data 并未初始化 )。 可以在这加个loading事件。 2.created数据观测 (data observer)，属性和方法的运算，watch/event 事件回调。然而，挂载阶段还没开始，$el 属性目前不可见。（完成data数据初始化，">
 
 
 
@@ -121,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/08/28/vuex-compatibility/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/02/15/vue-lifecycle/"/>
 
 
 
 
 
-  <title>vue项目遇到的兼容问题 | 前端笔记</title>
+  <title>关于vue2.0的生命周期 | 前端笔记</title>
   
 
 
@@ -244,7 +244,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/28/vuex-compatibility/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/15/vue-lifecycle/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Yajuan Wang">
@@ -261,7 +261,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">vue项目遇到的兼容问题</h1>
+          <h1 class="post-title" itemprop="name headline">关于vue2.0的生命周期</h1>
         
 
         <div class="post-meta">
@@ -273,8 +273,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-28T09:56:14+08:00">
-                2018-08-28
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-15T15:34:20+08:00">
+                2019-02-15
               </time>
             
 
@@ -311,12 +311,21 @@
       
 
       
-        <h2 id="一、IE报vuex-或-Promise-错误"><a href="#一、IE报vuex-或-Promise-错误" class="headerlink" title="一、IE报vuex 或 Promise 错误"></a>一、IE报vuex 或 Promise 错误</h2><p>解决方法：<br>第一步：安装 babel-polyfill 。 babel-polyfill可以模拟ES6使用的环境，可以使用ES6的所有新方法<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save babel-polyfill</span><br></pre></td></tr></table></figure></p>
-<p>第二步：<br>第一种：在webpack.base.config.js文件中，将<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">module.exports = &#123;</span><br><span class="line">entry: &#123;</span><br><span class="line">app: <span class="string">'./src/main.js'</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>改为<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">module.exports = &#123;</span><br><span class="line">entry: &#123;</span><br><span class="line">app: [<span class="string">"babel-polyfill"</span>, <span class="string">"./src/main.js"</span>]</span><br><span class="line">&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-<p>第二种：在main.js里全局引入：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import <span class="string">'babel-polyfill'</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="二、vue兼容IE9-IE10报语法错误，打不开页面"><a href="#二、vue兼容IE9-IE10报语法错误，打不开页面" class="headerlink" title="二、vue兼容IE9/IE10报语法错误，打不开页面"></a>二、vue兼容IE9/IE10报语法错误，打不开页面</h2><p>这个锅其实是 webpack-dev-server的问题。它里面通过socket给浏览器的代码有 部分 es6的代码 如 const 这些。然后这种东西ie11以下并不认识。<br>Webpack Dev Server 官方已经放弃了旧版浏览器的支持，所以要么回滚到 <a href="mailto:webpack-dev-server@2.7.1" target="_blank" rel="noopener">webpack-dev-server@2.7.1</a> 要么放弃旧版浏览器。</p>
-<h2 id="三、ie9与ie10-Vue-warn-Error-in-directive-transfer-dom-inserted-hook-“TypeError-无法获取未定义或-null-引用的属性“transfer””"><a href="#三、ie9与ie10-Vue-warn-Error-in-directive-transfer-dom-inserted-hook-“TypeError-无法获取未定义或-null-引用的属性“transfer””" class="headerlink" title="三、ie9与ie10[Vue warn]: Error in directive transfer-dom inserted hook: “TypeError: 无法获取未定义或 null 引用的属性“transfer””"></a>三、ie9与ie10[Vue warn]: Error in directive transfer-dom inserted hook: “TypeError: 无法获取未定义或 null 引用的属性“transfer””</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">var isIE = <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">  <span class="built_in">return</span> (window.navigator.userAgent.indexOf(<span class="string">"MSIE"</span>)&gt;=1);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 修复IE10及以下版本不支持dataset属性的问题，兼容transfer-dom.js中使用了dataset的问题</span><br><span class="line"><span class="keyword">if</span> (isIE() &amp;&amp; window.HTMLElement) &#123;</span><br><span class="line">  <span class="keyword">if</span> (Object.getOwnPropertyNames(HTMLElement.prototype).indexOf(<span class="string">'dataset'</span>) === -1) &#123;</span><br><span class="line">    Object.defineProperty(HTMLElement.prototype, <span class="string">'dataset'</span>, &#123;</span><br><span class="line">      get: <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">        var attributes = this.attributes;</span><br><span class="line">        var name = [],</span><br><span class="line">          value = [];</span><br><span class="line">        var obj = &#123;&#125;;</span><br><span class="line">        <span class="keyword">for</span> (var i = 0; i &lt; attributes.length; i++) &#123;</span><br><span class="line">          <span class="keyword">if</span> (attributes[i].nodeName.slice(0, 5) == <span class="string">'data-'</span>) &#123;</span><br><span class="line">            name.push(attributes[i].nodeName.slice(5));</span><br><span class="line">            value.push(attributes[i].nodeValue);</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (var j = 0; j &lt; name.length; j++) &#123;</span><br><span class="line">          obj[name[j]] = value[j];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">return</span> obj;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h2 id="1-beforeCreate"><a href="#1-beforeCreate" class="headerlink" title="1.beforeCreate"></a>1.beforeCreate</h2><p>在实例初始化之后，数据观测 (data observer) 和 event/watcher 事件配置之前被调用。(el 和 data 并未初始化 )。</p>
+<p>可以在这加个loading事件。</p>
+<h2 id="2-created"><a href="#2-created" class="headerlink" title="2.created"></a>2.created</h2><p>数据观测 (data observer)，属性和方法的运算，watch/event 事件回调。然而，挂载阶段还没开始，$el 属性目前不可见。（完成data数据初始化，el没有）</p>
+<p>在这结束loading，还做一些初始化，实现函数自执行  ajax操作；可以结合vm.$nextTick使用（dom渲染后的回调函数）</p>
+<h2 id="3-beforeMount"><a href="#3-beforeMount" class="headerlink" title="3.beforeMount"></a>3.beforeMount</h2><p>模板编译/挂载之前，完成了el和data的初始化；双花括号中的值只是占位</p>
+<h2 id="4-mounted"><a href="#4-mounted" class="headerlink" title="4.mounted"></a>4.mounted</h2><p>模板编译/挂载之后,花括号里的值被渲染，Dom操作一般是在mounted钩子函数中进行的。</p>
+<h2 id="5-beforeUpdate"><a href="#5-beforeUpdate" class="headerlink" title="5.beforeUpdate"></a>5.beforeUpdate</h2><p>数据更新时调用，发生在虚拟 DOM 打补丁之前。这里适合在更新之前访问现有的 DOM，比如手动移除已添加的事件监听器。</p>
+<h2 id="6-updated"><a href="#6-updated" class="headerlink" title="6.updated"></a>6.updated</h2><p>由于数据更改导致的虚拟 DOM 重新渲染和打补丁，在这之后会调用该钩子。</p>
+<p>当这个钩子被调用时，组件 DOM 已经更新，所以你现在可以执行依赖于 DOM 的操作。然而在大多数情况下，你应该避免在此期间更改状态。如果要相应状态改变，通常最好使用计算属性或 watcher 取而代之。</p>
+<p>注意 updated 不会承诺所有的子组件也都一起被重绘。如果你希望等到整个视图都重绘完毕，可以用 vm.$nextTick 替换掉 updated：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">updated: <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">  this.<span class="variable">$nextTick</span>(<span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">    // Code that will run only after the</span><br><span class="line">    // entire view has been re-rendered</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="7-activated"><a href="#7-activated" class="headerlink" title="7.activated"></a>7.activated</h2><p>keep-alive 组件激活时调用。</p>
+<h2 id="8-deactivated"><a href="#8-deactivated" class="headerlink" title="8.deactivated"></a>8.deactivated</h2><p>keep-alive 组件停用时调用。</p>
+<h2 id="9-beforeDestroy"><a href="#9-beforeDestroy" class="headerlink" title="9.beforeDestroy"></a>9.beforeDestroy</h2><p>实例销毁之前调用。在这一步，实例仍然完全可用。</p>
+<p>可做“你确认删除XX吗”等操作</p>
+<h2 id="10-destroyed"><a href="#10-destroyed" class="headerlink" title="10.destroyed"></a>10.destroyed</h2><p>Vue 实例销毁后调用。调用后，Vue 实例指示的所有东西都会解绑定，所有的事件监听器会被移除，所有的子实例也会被销毁。</p>
 
       
     </div>
@@ -341,8 +350,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/08/27/cross-domain/" rel="next" title="前端跨域的几种方法">
-                <i class="fa fa-chevron-left"></i> 前端跨域的几种方法
+              <a href="/2019/01/24/router-link/" rel="next" title="关于router-link">
+                <i class="fa fa-chevron-left"></i> 关于router-link
               </a>
             
           </div>
@@ -350,10 +359,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/08/28/data-type/" rel="prev" title="判断数据类型的方法">
-                判断数据类型的方法 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -474,7 +479,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、IE报vuex-或-Promise-错误"><span class="nav-number">1.</span> <span class="nav-text">一、IE报vuex 或 Promise 错误</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、vue兼容IE9-IE10报语法错误，打不开页面"><span class="nav-number">2.</span> <span class="nav-text">二、vue兼容IE9/IE10报语法错误，打不开页面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、ie9与ie10-Vue-warn-Error-in-directive-transfer-dom-inserted-hook-“TypeError-无法获取未定义或-null-引用的属性“transfer””"><span class="nav-number">3.</span> <span class="nav-text">三、ie9与ie10[Vue warn]: Error in directive transfer-dom inserted hook: “TypeError: 无法获取未定义或 null 引用的属性“transfer””</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-beforeCreate"><span class="nav-number">1.</span> <span class="nav-text">1.beforeCreate</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-created"><span class="nav-number">2.</span> <span class="nav-text">2.created</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-beforeMount"><span class="nav-number">3.</span> <span class="nav-text">3.beforeMount</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-mounted"><span class="nav-number">4.</span> <span class="nav-text">4.mounted</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-beforeUpdate"><span class="nav-number">5.</span> <span class="nav-text">5.beforeUpdate</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-updated"><span class="nav-number">6.</span> <span class="nav-text">6.updated</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-activated"><span class="nav-number">7.</span> <span class="nav-text">7.activated</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-deactivated"><span class="nav-number">8.</span> <span class="nav-text">8.deactivated</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-beforeDestroy"><span class="nav-number">9.</span> <span class="nav-text">9.beforeDestroy</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-destroyed"><span class="nav-number">10.</span> <span class="nav-text">10.destroyed</span></a></li></ol></div>
             
 
           </div>

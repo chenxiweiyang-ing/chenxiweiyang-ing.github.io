@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-03-06T10:39:00.181Z</updated>
+  <updated>2019-03-19T10:32:45.717Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>判断数据类型的方法</title>
+    <link href="http://yoursite.com/2019/03/19/trim/"/>
+    <id>http://yoursite.com/2019/03/19/trim/</id>
+    <published>2019-03-19T10:32:45.716Z</published>
+    <updated>2019-03-19T10:32:45.717Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="1-去除所有空格"><a href="#1-去除所有空格" class="headerlink" title="1.去除所有空格"></a>1.去除所有空格</h2>   <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">str   =   str.replace(/\s+/g,<span class="string">""</span>);</span><br></pre></td></tr></table></figure><h2 id="2-去除两头空格"><a href="#2-去除两头空格" class="headerlink" title="2.去除两头空格:"></a>2.去除两头空格:</h2>   <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">str   =   str.replace(/^\s+|\s+$/g,<span class="string">""</span>);</span><br></pre></td></tr></table></figure><h2 id="3-去除左空格"><a href="#3-去除左空格" class="headerlink" title="3.去除左空格:"></a>3.去除左空格:</h2>   <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">str   =   str.replace(/^\s*/g,<span class="string">""</span>);</span><br></pre></td></tr></table></figure><h2 id="4-去除右空格"><a href="#4-去除右空格" class="headerlink" title="4.去除右空格:"></a>4.去除右空格:</h2>   <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">str   =   str.replace(/\s*$/g,<span class="string">""</span>);</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;1-去除所有空格&quot;&gt;&lt;a href=&quot;#1-去除所有空格&quot; class=&quot;headerlink&quot; title=&quot;1.去除所有空格&quot;&gt;&lt;/a&gt;1.去除所有空格&lt;/h2&gt;   &lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td 
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>闭包的定义，特点，应用场景</title>

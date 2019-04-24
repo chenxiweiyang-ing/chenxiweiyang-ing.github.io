@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-03-19T10:32:45.717Z</updated>
+  <updated>2019-04-24T08:29:19.620Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>这段代码输出过程</title>
+    <link href="http://yoursite.com/2019/04/24/code-print/"/>
+    <id>http://yoursite.com/2019/04/24/code-print/</id>
+    <published>2019-04-24T08:29:19.619Z</published>
+    <updated>2019-04-24T08:29:19.620Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">Foo</span></span>() &#123;</span><br><span class="line">    getName = <span class="function"><span class="title">function</span></span>() &#123;console.log(1)&#125;;</span><br><span class="line">    <span class="built_in">return</span> this;</span><br><span class="line">&#125;</span><br><span class="line">Foo.getName = <span class="function"><span class="title">function</span></span>() &#123;console.log(2)&#125;;</span><br><span class="line">Foo.prototype.getName = <span class="function"><span class="title">function</span></span>() &#123;console.log(3)&#125;;</span><br><span class="line">var getName = <span class="function"><span class="title">function</span></span>() &#123;console.log(4)&#125;;</span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">getName</span></span>() &#123;console.log(5)&#125;;</span><br><span class="line">Foo.getName(); //2</span><br><span class="line">getName();//4</span><br><span class="line">Foo().getName();//1</span><br><span class="line">getName();//1</span><br><span class="line">new Foo.getName();//2</span><br><span class="line">new Foo().getName();//3</span><br><span class="line">new new Foo().getName();//3</span><br></pre></td></tr></table></figure><p>1.首先预编译阶段，变量声明与函数声明提升至其对应作用域的最顶端。</p><p>因此上面的代码编译后如下(函数声明的优先级先于变量声明):<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">Foo</span></span>() &#123;</span><br><span class="line">    getName = <span class="function"><span class="title">function</span></span>() &#123;console.log(1)&#125;;</span><br><span class="line">    <span class="built_in">return</span> this;</span><br><span class="line">&#125;</span><br><span class="line">var getName;</span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">getName</span></span>() &#123;console.log(5)&#125;;</span><br><span class="line">Foo.getName = <span class="function"><span class="title">function</span></span>() &#123;console.log(2)&#125;;</span><br><span class="line">Foo.prototype.getName = <span class="function"><span class="title">function</span></span>() &#123;console.log(3)&#125;;</span><br><span class="line">getName = <span class="function"><span class="title">function</span></span>() &#123;console.log(4)&#125;;</span><br></pre></td></tr></table></figure></p><p>2.Foo.getName();直接调用Foo上getName方法，输出2</p><p>3.getName();输出4，getName被重新赋值了</p><p>4.Foo().getName();执行Foo()，window的getName被重新赋值，返回this;浏览器环境中，非严格模式，this 指向 window，this.getName();输出为1.<br>如果是严格模式，this 指向 undefined，此处会抛出错误。</p><p>如果是node环境中，this 指向 global，node的全局变量并不挂在global上，因为global.getName对应的是undefined，不是一个function，会抛出错误。</p><p>5.getName();已经抛错的自然走不动这一步了；继续浏览器非严格模式；window.getName被重新赋过值，此时再调用，输出的是1</p><p>6.new Foo.getName();考察运算符优先级的知识，new 无参数列表，对应的优先级是18；成员访问操作符 . , 对应的优先级是 19。因此相当于是 new (Foo.getName)();new操作符会执行构造函数中的方法，因此此处输出为 2.</p><p>7.new Foo().getName()；new 带参数列表，对应的优先级是19，和成员访问操作符.优先级相同。同级运算符，按照从左到右的顺序依次计算。new Foo()先初始化 Foo 的实例化对象，实例上没有getName方法，因此需要原型上去找，即找到了 Foo.prototype.getName，输出3</p><p>8.new new Foo().getName(); new 带参数列表，优先级19，因此相当于是 new (new Foo()).getName()；先初始化 Foo 的实例化对象，然后将其原型上的 getName 函数作为构造函数再次 new ，输出3</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>判断数据类型的方法</title>

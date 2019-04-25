@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="前端笔记" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="1.基本模式12345678910var people=new Object();    people.name=&apos;aaa&apos;;    people.age=&apos;12&apos;;       people.run=function()&amp;#123;        return this.name+&apos;的年龄是&apos;+this.age //this是指的当前作用域下的对象，注意和谁调用这个方法有关，和在哪定义没啥关系">
+<meta property="og:type" content="article">
+<meta property="og:title" content="创建对象的几种方式">
+<meta property="og:url" content="http://yoursite.com/2019/04/25/create-obj/index.html">
+<meta property="og:site_name" content="前端笔记">
+<meta property="og:description" content="1.基本模式12345678910var people=new Object();    people.name=&apos;aaa&apos;;    people.age=&apos;12&apos;;       people.run=function()&amp;#123;        return this.name+&apos;的年龄是&apos;+this.age //this是指的当前作用域下的对象，注意和谁调用这个方法有关，和在哪定义没啥关系">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-04-25T08:15:49.820Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="创建对象的几种方式">
+<meta name="twitter:description" content="1.基本模式12345678910var people=new Object();    people.name=&apos;aaa&apos;;    people.age=&apos;12&apos;;       people.run=function()&amp;#123;        return this.name+&apos;的年龄是&apos;+this.age //this是指的当前作用域下的对象，注意和谁调用这个方法有关，和在哪定义没啥关系">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/04/25/create-obj/"/>
+
+
+
+
+
+  <title>创建对象的几种方式 | 前端笔记</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">前端笔记</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/25/create-obj/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yajuan Wang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="前端笔记">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">创建对象的几种方式</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-25T16:15:49+08:00">
+                2019-04-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="1-基本模式"><a href="#1-基本模式" class="headerlink" title="1.基本模式"></a>1.基本模式</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var people=new Object();</span><br><span class="line">    people.name=<span class="string">'aaa'</span>;</span><br><span class="line">    people.age=<span class="string">'12'</span>;</span><br><span class="line">  </span><br><span class="line"> </span><br><span class="line">    people.run=<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">        <span class="built_in">return</span> this.name+<span class="string">'的年龄是'</span>+this.age //this是指的当前作用域下的对象，注意和谁调用这个方法有关，和在哪定义没啥关系</span><br><span class="line">    &#125;</span><br><span class="line">    console.log(people.name) //aaa</span><br><span class="line">    console.log(people.run()) //aaa的年龄是12</span><br></pre></td></tr></table></figure>
+<h2 id="2-工厂模式"><a href="#2-工厂模式" class="headerlink" title="2.工厂模式"></a>2.工厂模式</h2><h3 id="2-1介绍"><a href="#2-1介绍" class="headerlink" title="2.1介绍"></a>2.1介绍</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> createPerson(name, age) &#123;</span><br><span class="line">  var obj = new Object()</span><br><span class="line">  obj.name = name</span><br><span class="line">  obj.age = age</span><br><span class="line">  obj.getName = <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">    console.log(this.name)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">return</span> obj //注意一定要讲创建的对象返回 </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var person1 = createPerson(<span class="string">"AAA"</span>, 23)</span><br><span class="line">person1.getName()   //AAA</span><br><span class="line"></span><br><span class="line">var person2 = createPerson(<span class="string">"BBB"</span>, 30)</span><br><span class="line">person2.getName()   //BBB</span><br></pre></td></tr></table></figure>
+<h2 id="3-构造函数模式"><a href="#3-构造函数模式" class="headerlink" title="3.构造函数模式"></a>3.构造函数模式</h2><h3 id="3-1介绍"><a href="#3-1介绍" class="headerlink" title="3.1介绍"></a>3.1介绍</h3><p>构造函数没有通过new Object()显示创建对象，属性和方法赋值给了this，不需要使用 return语句返回对象，它的返回是自动完成的<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> Person(name, age) &#123;</span><br><span class="line">  this.name = name</span><br><span class="line">  this.age = age</span><br><span class="line">  this.getName = <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">    console.log(this.name)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var person1 = new Person(<span class="string">"AAA"</span>, 23)</span><br><span class="line">person1.getName()  //AAA</span><br><span class="line"></span><br><span class="line">var person2 = new Person(<span class="string">"BBB"</span>, 30)</span><br><span class="line">person2.getName()  //BBB</span><br></pre></td></tr></table></figure></p>
+<h3 id="3-2构造函数也是函数"><a href="#3-2构造函数也是函数" class="headerlink" title="3.2构造函数也是函数"></a>3.2构造函数也是函数</h3><p>构造函数其实也是个函数，只是可以通过new调用来创建对象，当然也可作为普通函数使用<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//作为普通函数使用</span><br><span class="line">Person(<span class="string">"CCC"</span>, 24)</span><br><span class="line">Person.getName() //CCC</span><br><span class="line"></span><br><span class="line">//在一个对象内调用</span><br><span class="line">var obj = &#123;&#125;</span><br><span class="line">Person.call(obj, <span class="string">"DDD"</span>, 25)</span><br><span class="line">obj.getName()    //DDD</span><br></pre></td></tr></table></figure></p>
+<h3 id="3-3缺点"><a href="#3-3缺点" class="headerlink" title="3.3缺点"></a>3.3缺点</h3><p>构造函数模式可以创建具体类型的对象<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">console.log(person1 instanceof Object)  //<span class="literal">true</span></span><br><span class="line">console.log(person1 instanceof Person)  //<span class="literal">true</span></span><br></pre></td></tr></table></figure></p>
+<p>然而，构造函数中的方法是通用的，但每个实例都创建了一份属于自己的副本，造成内存浪费<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(person1.getName === person2.getName)  //<span class="literal">false</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="4-原型模式"><a href="#4-原型模式" class="headerlink" title="4.原型模式"></a>4.原型模式</h2><h3 id="4-1介绍"><a href="#4-1介绍" class="headerlink" title="4.1介绍"></a>4.1介绍</h3><p>原型模式即通过原型对象来实现属性和方法的共享，实例对象不会创建各自的副本。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">Person</span></span>()&#123;&#125;</span><br><span class="line">Person.prototype.name=<span class="string">'ccc'</span></span><br><span class="line">Person.prototype.age = 23</span><br><span class="line">Person.prototype.getName = <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">  console.log(this.name)</span><br><span class="line">&#125;</span><br><span class="line">var person1=new Person()</span><br><span class="line">person1.getName()    //ccc</span><br><span class="line"></span><br><span class="line">var person2 = new Person()</span><br><span class="line">person2.name = <span class="string">"BBB"</span></span><br><span class="line">person2.getName()    //BBB</span><br><span class="line">console.log(person1.getName === person2.getName)  //<span class="literal">true</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="4-2缺陷"><a href="#4-2缺陷" class="headerlink" title="4.2缺陷"></a>4.2缺陷</h3><p>对于引用类型的属性，各实例对象间指向同一个地址，某个对象修改了属性，所有对象都会受到影响<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">Person</span></span>() &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Person.prototype.arr = [1,2,3]</span><br><span class="line">Person.prototype.getArr = <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">  console.log(this.arr)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var person1 = new Person()</span><br><span class="line">person1.arr.push(4)</span><br><span class="line">person1.getArr()    //1,2,3,4</span><br><span class="line"></span><br><span class="line">var person2 = new Person()</span><br><span class="line">person2.getArr()    //1,2,3,4</span><br><span class="line"></span><br><span class="line">person1.arr.push(5)</span><br><span class="line">person1.getArr()    //1,2,3,4,5</span><br><span class="line">person2.getArr()    //1,2,3,4,5</span><br></pre></td></tr></table></figure></p>
+<h2 id="5-组合模式"><a href="#5-组合模式" class="headerlink" title="5.组合模式"></a>5.组合模式</h2><h3 id="5-1介绍"><a href="#5-1介绍" class="headerlink" title="5.1介绍"></a>5.1介绍</h3><p>组合模式即组合构造函数模式和原型模式，取二者之长，构造函数模式用于定义实例的属性，原型模式用于定义方法和共享的属性<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">function Person(name, age) &#123;</span><br><span class="line">  this.name = name</span><br><span class="line">  this.age = age</span><br><span class="line">  this.arr = [1,2,3]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Person.prototype = &#123;</span><br><span class="line">  getName: function() &#123;</span><br><span class="line">    console.log(this.name)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var person1 = new Person(&quot;AAA&quot;, 23)</span><br><span class="line">person1.arr.push(4)</span><br><span class="line">console.log(person1.arr)  //1,2,3,4</span><br><span class="line">person1.getName()         //AAA</span><br><span class="line"></span><br><span class="line">var person2 = new Person(&quot;BBB&quot;, 30)</span><br><span class="line">console.log(person2.arr)  //1,2,3</span><br><span class="line">person2.getName()         //BBB</span><br></pre></td></tr></table></figure></p>
+<h3 id="5-2缺陷"><a href="#5-2缺陷" class="headerlink" title="5.2缺陷"></a>5.2缺陷</h3><p>每创建一个实例对象，原型方法都被重复定义一次</p>
+<h2 id="6-动态原型模式"><a href="#6-动态原型模式" class="headerlink" title="6.动态原型模式"></a>6.动态原型模式</h2><h3 id="6-1使用if语句，使得原型方法只初始化一次"><a href="#6-1使用if语句，使得原型方法只初始化一次" class="headerlink" title="6.1使用if语句，使得原型方法只初始化一次"></a>6.1使用if语句，使得原型方法只初始化一次</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">function Person(name, age) &#123;</span><br><span class="line">  this.name = name</span><br><span class="line">  this.age = age</span><br><span class="line"></span><br><span class="line">  //这里只需要使用任何一个方式或属性，不一定是getName，getAge也可以</span><br><span class="line">  //只要保证if里面的代码只执行一次就行</span><br><span class="line">  if(typeof this.getName !== &apos;function&apos;) &#123;</span><br><span class="line">    Person.prototype.getName = function() &#123;</span><br><span class="line">      console.log(this.name)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    Person.prototype.getAge = function() &#123;</span><br><span class="line">      console.log(this.age)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var person = new Person(&quot;AAA&quot;, 23)</span><br><span class="line">person.getName()    //AAA</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/24/code-print/" rel="next" title="这段代码输出过程">
+                <i class="fa fa-chevron-left"></i> 这段代码输出过程
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Yajuan Wang</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-基本模式"><span class="nav-number">1.</span> <span class="nav-text">1.基本模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-工厂模式"><span class="nav-number">2.</span> <span class="nav-text">2.工厂模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1介绍"><span class="nav-number">2.1.</span> <span class="nav-text">2.1介绍</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-构造函数模式"><span class="nav-number">3.</span> <span class="nav-text">3.构造函数模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1介绍"><span class="nav-number">3.1.</span> <span class="nav-text">3.1介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2构造函数也是函数"><span class="nav-number">3.2.</span> <span class="nav-text">3.2构造函数也是函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3缺点"><span class="nav-number">3.3.</span> <span class="nav-text">3.3缺点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-原型模式"><span class="nav-number">4.</span> <span class="nav-text">4.原型模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1介绍"><span class="nav-number">4.1.</span> <span class="nav-text">4.1介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2缺陷"><span class="nav-number">4.2.</span> <span class="nav-text">4.2缺陷</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-组合模式"><span class="nav-number">5.</span> <span class="nav-text">5.组合模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1介绍"><span class="nav-number">5.1.</span> <span class="nav-text">5.1介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2缺陷"><span class="nav-number">5.2.</span> <span class="nav-text">5.2缺陷</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-动态原型模式"><span class="nav-number">6.</span> <span class="nav-text">6.动态原型模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-1使用if语句，使得原型方法只初始化一次"><span class="nav-number">6.1.</span> <span class="nav-text">6.1使用if语句，使得原型方法只初始化一次</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yajuan Wang</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+</html>

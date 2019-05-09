@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-05-09T07:44:45.955Z</updated>
+  <updated>2019-05-09T07:45:33.915Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,16 +20,16 @@
     <title>Jenkins构建出错可能的原因</title>
     <link href="http://yoursite.com/2019/05/09/jenkins-compile/"/>
     <id>http://yoursite.com/2019/05/09/jenkins-compile/</id>
-    <published>2019-05-09T07:44:45.950Z</published>
-    <updated>2019-05-09T07:44:45.955Z</updated>
+    <published>2019-05-09T07:45:33.911Z</published>
+    <updated>2019-05-09T07:45:33.915Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="一、错误1"><a href="#一、错误1" class="headerlink" title="一、错误1"></a>一、错误1</h2><h4 id="错误日志"><a href="#错误日志" class="headerlink" title="错误日志"></a>错误日志</h4><p><img src="/2019/05/09/jenkins-compile/1.png" alt="avatar"><br><img src="/2019/05/09/jenkins-compile/2.png" alt="avatar"></p><h4 id="原因，解决方法"><a href="#原因，解决方法" class="headerlink" title="原因，解决方法"></a>原因，解决方法</h4><p>怀疑是否是package-lock.json出现的问题，本人遇到的情况是，之前npm安装了一个插件，之后并未卸载，只在package.json里删除了相应版本号，package-lock.json确保留了，导致构建报了这样的错。</p><p>解决方法：将之前的插件npm uninstall XXX就可以了，这样就能删除package-lock.json里的关于那个插件的信息</p>]]></content>
+    <content type="html"><![CDATA[<h2 id="一、错误1"><a href="#一、错误1" class="headerlink" title="一、错误1"></a>一、错误1</h2><h4 id="1、错误日志"><a href="#1、错误日志" class="headerlink" title="1、错误日志"></a>1、错误日志</h4><p><img src="/2019/05/09/jenkins-compile/1.png" alt="avatar"><br><img src="/2019/05/09/jenkins-compile/2.png" alt="avatar"></p><h4 id="2、原因，解决方法"><a href="#2、原因，解决方法" class="headerlink" title="2、原因，解决方法"></a>2、原因，解决方法</h4><p>怀疑是否是package-lock.json出现的问题，本人遇到的情况是，之前npm安装了一个插件，之后并未卸载，只在package.json里删除了相应版本号，package-lock.json确保留了，导致构建报了这样的错。</p><p>解决方法：将之前的插件npm uninstall XXX就可以了，这样就能删除package-lock.json里的关于那个插件的信息</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h2 id=&quot;一、错误1&quot;&gt;&lt;a href=&quot;#一、错误1&quot; class=&quot;headerlink&quot; title=&quot;一、错误1&quot;&gt;&lt;/a&gt;一、错误1&lt;/h2&gt;&lt;h4 id=&quot;错误日志&quot;&gt;&lt;a href=&quot;#错误日志&quot; class=&quot;headerlink&quot; title=&quot;错误日志&quot;
+        &lt;h2 id=&quot;一、错误1&quot;&gt;&lt;a href=&quot;#一、错误1&quot; class=&quot;headerlink&quot; title=&quot;一、错误1&quot;&gt;&lt;/a&gt;一、错误1&lt;/h2&gt;&lt;h4 id=&quot;1、错误日志&quot;&gt;&lt;a href=&quot;#1、错误日志&quot; class=&quot;headerlink&quot; title=&quot;1
       
     
     </summary>

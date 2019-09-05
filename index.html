@@ -231,6 +231,305 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/05/blob/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yajuan Wang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="前端笔记">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/09/05/blob/" itemprop="url">blob对象实现前端下载</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-05T11:41:44+08:00">
+                2019-09-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>此处用的axios发送请求，后端返回文件流。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">axios(&#123;</span><br><span class="line">    method: <span class="string">'post'</span>,</span><br><span class="line">    url: url`,</span><br><span class="line">    data: params,</span><br><span class="line">    responseType: <span class="string">'blob'</span>,//当初就是没改这个搞了好久</span><br><span class="line">    headers: <span class="string">'XXX'</span></span><br><span class="line">  &#125;)</span><br><span class="line">  .<span class="keyword">then</span>(res =&gt; &#123;</span><br><span class="line">              var elink = document.createElement(<span class="string">'a'</span>);</span><br><span class="line">              elink.download = `导出结果.zip`;//导出文件的名字</span><br><span class="line">              elink.style.display = <span class="string">'none'</span>;</span><br><span class="line">              var blob = new Blob([res]);</span><br><span class="line">              elink.href = URL.createObjectURL(blob);</span><br><span class="line">              document.body.appendChild(elink);</span><br><span class="line">              elink.click();</span><br><span class="line">              document.body.removeChild(elink);</span><br><span class="line">            &#125;)</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/28/webpack/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yajuan Wang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="前端笔记">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/28/webpack/" itemprop="url">webpack</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-28T18:37:43+08:00">
+                2019-05-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="webpack定义"><a href="#webpack定义" class="headerlink" title="webpack定义"></a>webpack定义</h2><p>webpack是一个模块打包工具。(最初只对js打包，现在可对任意文件打包)</p>
+<p>webpack对ES Module模块引入方式、CommonJS模块引入规范、CMD、AMD都能正确识别。</p>
+<p>ES6模式<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">导入模块：</span><br><span class="line">import XXX from <span class="string">'./XXX.js'</span></span><br><span class="line">导出模块：</span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">XXX</span></span>()&#123;&#125;</span><br><span class="line"><span class="built_in">export</span> default XXX</span><br></pre></td></tr></table></figure></p>
+<p>CommonJS模式<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">导入模块：</span><br><span class="line">var XXX=require(<span class="string">'./XXX.js'</span>)</span><br><span class="line">new XXX()</span><br><span class="line">导出模块：</span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">XXX</span></span>()&#123;&#125;</span><br><span class="line">module.exports=XXX</span><br></pre></td></tr></table></figure></p>
+<h2 id="webpack-安装"><a href="#webpack-安装" class="headerlink" title="webpack 安装"></a>webpack 安装</h2><p>1.安装node。默认也安装了npm</p>
+<p>2.进入要安装的文件夹运行npm init生成package.json文件</p>
+<p>3.运行npm install webpack webpack-cli</p>
+<p>   若安装在项目内，可能运行webpack命令报错，可使用npx，如npx webpack -v。</p>
+<p>   npm info webpack可查看webpack版本号 可用npm install webpack@版本号</p>
+<h2 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h2><p>文件名称：webpack.config.js<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">var HtmlWebpackPlugin = require(<span class="string">'html-webpack-plugin'</span>);</span><br><span class="line">var cleanWebpackPlugin = require(<span class="string">'clean-webpack-plugin'</span>);</span><br><span class="line">const path = require(<span class="string">'path'</span>)</span><br><span class="line">module.exports = &#123;</span><br><span class="line">    entry: <span class="string">'./index.js'</span>,//入口</span><br><span class="line">    module:&#123;</span><br><span class="line">        rulles:[</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">test</span>:/\.(jpg|png|gif)$/,</span><br><span class="line">            use:&#123;</span><br><span class="line">                loader:<span class="string">'file-loader'</span>,//用于打包jpg图片</span><br><span class="line">                options:&#123;</span><br><span class="line">                name:<span class="string">'[name].[ext]'</span>，//name为源文件的名字，ext为后缀，此为占位符</span><br><span class="line">                outputPath：<span class="string">'images/'</span>//将图片打包到images文件夹</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">test</span>:/\.jpg$/,</span><br><span class="line">            use:&#123;</span><br><span class="line">                  loader:<span class="string">'url-loader'</span>,//用于打包jpg图片</span><br><span class="line">                   options:&#123;</span><br><span class="line">                       name:<span class="string">'[name].[ext]'</span>，//name为源文件的名字，ext为后缀，此为占位符</span><br><span class="line">                       outputPath：<span class="string">'images/'</span>,//将图片打包到images文件夹</span><br><span class="line">                       <span class="built_in">limit</span>:20480//小于这个被打包到js文件，大于打包到images里</span><br><span class="line">                        </span><br><span class="line">                   &#125;     </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">test</span>:/\.css$/,</span><br><span class="line">            use:[<span class="string">'style-loader'</span>,<span class="string">'css-loader'</span>]</span><br><span class="line">                    </span><br><span class="line">        &#125;,</span><br><span class="line">         &#123;</span><br><span class="line">             <span class="built_in">test</span>:/\.scss$/,</span><br><span class="line">              use:[<span class="string">'style-loader'</span>,<span class="string">'css-loader'</span>,<span class="string">'sass-loader'</span>,<span class="string">'postcss-loader'</span>]</span><br><span class="line">                            </span><br><span class="line">         &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;,</span><br><span class="line">     plugins: [new HtmlWebpackPlugin(&#123;</span><br><span class="line">         template:<span class="string">'src/index.html'</span>, //以此文件为模板</span><br><span class="line">         new cleanWebpackPlugin([<span class="string">'dist])</span></span><br><span class="line"><span class="string">     &#125;)]</span></span><br><span class="line"><span class="string">    output: &#123;</span></span><br><span class="line"><span class="string">    filename:'</span><span class="string">'bundle.js,</span></span><br><span class="line"><span class="string">    path: path.resolve(_dirname, '</span>dist<span class="string">')//打包后的文件，_dirname为当前文件所在的路径</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="loader"><a href="#loader" class="headerlink" title="loader"></a>loader</h2><p>webpack不能识别非js的文件打包，所以需要添加loader，使用看配置文件。<br>1.打包静态资源</p>
+<p>url-loader与file-loader类似，只是前者打包后的文件会放在打包后的js文件里，比如图片会变为base64.可配置limit参数。<br>2.打包样式（具体可看webpack的官方文档）<br>‘style-loader’,’css-loader’,’sass-loader’</p>
+<p>loader 的执行顺序是从下到上，从右到左的执行顺序。</p>
+<p>postcss-loader<br>postcss.config.js<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">module.exports = &#123;</span><br><span class="line">  plugins: [</span><br><span class="line">  require(<span class="string">'autoprefixer'</span>)]//可为css添加前缀</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>3.配置项<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="built_in">test</span>: /\.scss$/,</span><br><span class="line">  use: [</span><br><span class="line">    <span class="string">'style-loader'</span>,</span><br><span class="line">    &#123; loader: <span class="string">'css-loader'</span>, </span><br><span class="line">      options: &#123; </span><br><span class="line">      importLoaders: 1,//让此scss文件里通过import引入的scss文件也要从下边loader开始执行</span><br><span class="line">      modules:<span class="literal">true</span>//开始css的模块化打包（防止样式冲突，加载各自样式）</span><br><span class="line">       &#125; </span><br><span class="line">      &#125;,</span><br><span class="line">    &#123; loader: <span class="string">'postcss-loader'</span>, options: &#123; parser: <span class="string">'sugarss'</span>, <span class="built_in">exec</span>: <span class="literal">true</span> &#125; &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>4.打包字体文件 file-loader</p>
+<h2 id="plugins"><a href="#plugins" class="headerlink" title="plugins"></a>plugins</h2><p>在webpack运行到某个时刻的时候，帮你做一些事情</p>
+<p>1.HtmlWebpackPlugin(代码参考上边)<br>会在打包结束后，自动生成一个html文件，并把打包生成的js自动引入到html中<br>2.cleanWebpackPlugin</p>
+<p>打包之前清理某个文件。</p>
+<p>安装：npm install clean-webpack-plugin -d</p>
+<h2 id="entry"><a href="#entry" class="headerlink" title="entry"></a>entry</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> entry: &#123;    //若output不写打包文件，默认打包成main.js</span><br><span class="line">    main:<span class="string">'./src/index.js'</span>,</span><br><span class="line">    sub:<span class="string">'./src/index.js'</span>,</span><br><span class="line"> &#125;,</span><br><span class="line">output: &#123;</span><br><span class="line">    filename:<span class="string">'[name].js'</span>,</span><br><span class="line">    path: path.resolve(_dirname, <span class="string">'dist'</span>)//打包后的文件，_dirname为当前文件所在的路径</span><br><span class="line">    publicPath:<span class="string">'./dist'</span>//会将打包后的文件指向这个地址下的文件</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>会打包两次，生成main.js,sub.js两个文件</p>
+<h2 id="sourceMap-具体参考webpack文档"><a href="#sourceMap-具体参考webpack文档" class="headerlink" title="sourceMap 具体参考webpack文档"></a>sourceMap 具体参考webpack文档</h2><p>它是一个映射关系，若代码出错，可映射到源代码的哪个文件哪行出错。<br>devTool:’none’ 可关掉sourceMap<br>devTool:’source-map’开启sourceMap，会多出XX.js.map文件<br>devTool:’inline-source-map’开启sourceMap，映射文件会在main.js里<br>devTool:’cheap-inline-source-map’同上，报错提示直到第几行，打包速度会加快<br>开发环境建议：cheap-module-eval-source-map<br>生产环境建议：cheap-module-source-map提示效果较好</p>
+<h2 id="自动打包方法"><a href="#自动打包方法" class="headerlink" title="自动打包方法"></a>自动打包方法</h2><p>package.json<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"scripts"</span>: &#123;</span><br><span class="line">    <span class="string">"watch"</span>: <span class="string">"webpack --watch"</span>,文件发生变化，会自动重新打包</span><br><span class="line">    <span class="string">"start"</span>:<span class="string">"webpack-dev-server"</span>本地起http服务，自动打包，自动刷新浏览器</span><br><span class="line">    <span class="string">"middleware"</span>:<span class="string">"node server.js"</span>自己创建一个server</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure></p>
+<p>1.观察模式<br>如上npm run watch;</p>
+<p>缺点：需要手动刷新浏览器</p>
+<p>2.web服务器<br>安装webpack-dev-server，在配置文件添加devServer，运行npm run start</p>
+<p>webpack.config.js<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">devServer:&#123;</span><br><span class="line">    contentBase:<span class="string">'./dist'</span>,html所在的位置</span><br><span class="line">    open:<span class="literal">true</span> //自动打开浏览器</span><br><span class="line">    port:8080</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>3.webpack中间件</p>
+<p>添加webpack中间件和express</p>
+<p>安装：npm install express webpack-dev-middleware -D</p>
+<p>server.js<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">const express=require(<span class="string">"express"</span>);</span><br><span class="line">const webpack=require(<span class="string">"webpack"</span>);</span><br><span class="line">const webpackDevMiddleware=require(<span class="string">"webpack-dev-middleware"</span>);</span><br><span class="line">const config=require(<span class="string">'./webpack.config.js'</span>)</span><br><span class="line">const complier=webpack(config)</span><br><span class="line">const app=express();</span><br><span class="line">app.use(webpackDevMiddleware(complier,&#123;</span><br><span class="line">    publicPath:config.output.publicPath</span><br><span class="line">    &#125;))</span><br><span class="line">app.listen(3000,()=&gt;&#123;</span><br><span class="line">console.log(<span class="string">"server is running"</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>缺点：需手动刷新浏览器+配置文件和插件多</p>
+<h2 id="热模块更新HotModuleReplacement"><a href="#热模块更新HotModuleReplacement" class="headerlink" title="热模块更新HotModuleReplacement"></a>热模块更新HotModuleReplacement</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">const webpack-require(<span class="string">"webpack"</span>)</span><br><span class="line">devServer:&#123;</span><br><span class="line">    contentBase:<span class="string">'./dist'</span>,html所在的位置</span><br><span class="line">    open:<span class="literal">true</span>,//自动打开浏览器</span><br><span class="line">    port:8080,</span><br><span class="line">    hot:<span class="literal">true</span>,//开启后，如换样式等会局部更新，不会刷新页面</span><br><span class="line">    hotOnly:<span class="literal">true</span>//可选，为<span class="literal">true</span>时，若热更新失效，不会刷新页面，否则会刷新</span><br><span class="line">&#125;</span><br><span class="line">plugins:[</span><br><span class="line">new webpack.HotModuleReplacementPlugin()]</span><br></pre></td></tr></table></figure>
+<h2 id="babel转化es6语法"><a href="#babel转化es6语法" class="headerlink" title="babel转化es6语法"></a>babel转化es6语法</h2><p>安装：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev babel-loader @babel/core</span><br><span class="line">npm install @babel/preset-env --save-dev //翻译成es5语法</span><br></pre></td></tr></table></figure></p>
+<p>配置文件中添加：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">module: &#123;</span><br><span class="line">  rules: [</span><br><span class="line">    &#123; <span class="built_in">test</span>: /\.js$/, </span><br><span class="line">      exclude: /node_modules/, </span><br><span class="line">      loader: <span class="string">"babel-loader"</span>，</span><br><span class="line">      options:&#123;</span><br><span class="line">               <span class="string">"presets"</span>: [<span class="string">"@babel/preset-env"</span>]</span><br><span class="line">             &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="转义promise等语法兼容低版本浏览器："><a href="#转义promise等语法兼容低版本浏览器：" class="headerlink" title="转义promise等语法兼容低版本浏览器："></a>转义promise等语法兼容低版本浏览器：</h3><p>1.安装polyfill</p>
+<p>可使promise等不支持低版本的浏览器兼容法<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save @babel/polyfill</span><br></pre></td></tr></table></figure></p>
+<p>配置文件中添加：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">module: &#123;</span><br><span class="line">  rules: [</span><br><span class="line">    &#123; <span class="built_in">test</span>: /\.js$/, </span><br><span class="line">      exclude: /node_modules/, </span><br><span class="line">      loader: <span class="string">"babel-loader"</span>，</span><br><span class="line">      options:&#123;</span><br><span class="line">               <span class="string">"presets"</span>: [[<span class="string">"@babel/preset-env"</span>],&#123;</span><br><span class="line">               useBuiltIns:<span class="string">'usage'</span>//用到某个语法时再加载相关兼容代码</span><br><span class="line">               &#125;]</span><br><span class="line">             &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>2.使用plugin-transform-runtime<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev @babel/plugin-transform-runtime</span><br></pre></td></tr></table></figure></p>
+<p>配置文件中添加：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">module: &#123;</span><br><span class="line">  rules: [</span><br><span class="line">    &#123; <span class="built_in">test</span>: /\.js$/, </span><br><span class="line">      exclude: /node_modules/, </span><br><span class="line">      loader: <span class="string">"babel-loader"</span>，</span><br><span class="line">      <span class="string">"plugins"</span>: [[</span><br><span class="line">                  <span class="string">"@babel/plugin-transform-runtime"</span>,</span><br><span class="line">                  &#123;</span><br><span class="line">                    <span class="string">"corejs"</span>: 2,</span><br><span class="line">                    <span class="string">"helpers"</span>: <span class="literal">true</span>,</span><br><span class="line">                    <span class="string">"regenerator"</span>: <span class="literal">true</span>,</span><br><span class="line">                    <span class="string">"useESModules"</span>: <span class="literal">false</span></span><br><span class="line">                  &#125;</span><br><span class="line">                  ]]</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save @babel/runtime-corejs2</span><br></pre></td></tr></table></figure>
+<h2 id="tree-shaking（2-0版本才出现）"><a href="#tree-shaking（2-0版本才出现）" class="headerlink" title="tree shaking（2.0版本才出现）"></a>tree shaking（2.0版本才出现）</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">optimization:&#123;</span><br><span class="line">    usedExports:<span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>production模式下不需要上述配置。<br>pacakage.json<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"name"</span>:<span class="string">""</span>,</span><br><span class="line"><span class="string">"sideEffects"</span>:<span class="literal">false</span>//对所有模块应用</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"name"</span>:<span class="string">""</span>,</span><br><span class="line"><span class="string">"sideEffects"</span>:[//不需要tree shaking的模块]</span><br></pre></td></tr></table></figure>
+<p>配置后webpack会用tree shaking模块打包，引入的模块会被打包，未引入的不会被打包。注意只在production模式下才会生效；develoment模式下只会提示未用的模块。只支持es6的模块引入。</p>
+<h2 id="webpack-and-code-splitting"><a href="#webpack-and-code-splitting" class="headerlink" title="webpack and code splitting"></a>webpack and code splitting</h2><p>打包成一个文件后，打包文件会很大，加载时间会很长。<br>1.配置多个入口文件,会打包成多个文件：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">entry:&#123;</span><br><span class="line">lodash:<span class="string">'./src/lodash.js'</span></span><br><span class="line">main:<span class="string">'./src/index.js'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>2.代码分割</p>
+<p>和webpack无关。<br>同步代码：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">optimization:&#123;</span><br><span class="line">    spliteChunks:&#123;</span><br><span class="line">       chunks:<span class="string">"all"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>配置后，webpack自动将第三方库分割出来打包。</p>
+<p>异步代码：</p>
+<p>无需配置，在webpack里写异步组件也会自动代码分割</p>
+<h2 id="SplitChunksPlugin"><a href="#SplitChunksPlugin" class="headerlink" title="SplitChunksPlugin"></a>SplitChunksPlugin</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">optimization:&#123;</span><br><span class="line">   splitChunks: &#123;</span><br><span class="line">       chunks: <span class="string">"all"</span>,//值<span class="string">"async"</span>，只对异步引入打包</span><br><span class="line">       minSize: 30000,//大于30kb才会代码分割</span><br><span class="line">       minChunks: 1,//当一个模块被用了n次时才会代码分割</span><br><span class="line">       maxAsyncRequests: 5,</span><br><span class="line">       maxInitialRequests: 3,</span><br><span class="line">       automaticNameDelimiter: <span class="string">'~'</span>,</span><br><span class="line">       name: <span class="literal">true</span>,</span><br><span class="line">       cacheGroups: &#123;</span><br><span class="line">           vendors: &#123;</span><br><span class="line">               <span class="built_in">test</span>: /[\\/]node_modules[\\/]/,匹配正则的打包</span><br><span class="line">               priority: -10,值越大优先级越高，当一个模块符合多个组要求时有用</span><br><span class="line">               filename:<span class="string">'vendors.js'</span>//给打包后的文件重命名</span><br><span class="line">           &#125;,</span><br><span class="line">       default: &#123;  不符合上边的打包到这个里</span><br><span class="line">               minChunks: 2,</span><br><span class="line">               priority: -20,</span><br><span class="line">               reuseExistingChunk: <span class="literal">true</span>，</span><br><span class="line">               filename:<span class="string">'common.js'</span></span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="lazy-loading"><a href="#lazy-loading" class="headerlink" title="lazy loading"></a>lazy loading</h2><p>lazy loading：页面执行的时候，需要的时候再加载代码；<br>trunk:打包后生成几个js文件，就有几个trunk</p>
+<h2 id="css文件的代码分割"><a href="#css文件的代码分割" class="headerlink" title="css文件的代码分割"></a>css文件的代码分割</h2><p>filename与chunkname，当生成的文件会被html直接引用，打包后的名字为前者，否则为后者。<br> mini-css-extract-plugin：分离css文件，只支持生产环境。<br> optimize-css-assets-webpack-plugin：可以对抽离的css进行合并压缩</p>
+<h2 id="shimming"><a href="#shimming" class="headerlink" title="shimming"></a>shimming</h2><p> 比如引入了一个依赖jq的库，会报$未定义，就需要用这个。<br> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">plugins:[</span><br><span class="line">  new webpack.ProvidePlugin(&#123;</span><br><span class="line">  $:<span class="string">"jquery"</span>，</span><br><span class="line">  _:<span class="string">"lodash"</span></span><br><span class="line">  &#125;)</span><br><span class="line">]</span><br></pre></td></tr></table></figure></p>
+<p>变更模块中的默认值，比如让模块中的this===window<br> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">rules: [</span><br><span class="line">   &#123; <span class="built_in">test</span>: /\.js$/, </span><br><span class="line">     exclude: /node_modules/, </span><br><span class="line">    use:[&#123;</span><br><span class="line">       loader:<span class="string">'babel-loader'</span></span><br><span class="line">    &#125;,&#123;</span><br><span class="line">        loader:<span class="string">'imports-loader?this+&gt;window'</span></span><br><span class="line">       &#125;]</span><br><span class="line">   &#125;</span><br><span class="line"> ]</span><br></pre></td></tr></table></figure></p>
+<h2 id="PWA打包"><a href="#PWA打包" class="headerlink" title="PWA打包"></a>PWA打包</h2><p>  应用场景：无网络时，可以打开页面<br>  1.安装插件 WorkboxPlugin<br>  2.使用：<br>  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">plugins:[</span><br><span class="line">  new webpack.WorkboxPlugin(&#123;</span><br><span class="line">     clientsClaim:<span class="literal">true</span>,</span><br><span class="line">     skipWaiting:<span class="literal">true</span></span><br><span class="line">  &#125;)</span><br><span class="line">]</span><br></pre></td></tr></table></figure></p>
+<h2 id="webpack打包优化"><a href="#webpack打包优化" class="headerlink" title="webpack打包优化"></a>webpack打包优化</h2><p>  1.升级node，webpack，npm<br>  2.尽量让loader的作用范围变小，优化loader配置，如利用include、exclude<br>  3.尽量少用plugins，并确定其可靠性<br>  4.resolve参数合理配置<br>  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">resolve: &#123;</span><br><span class="line">   extensions: [ <span class="string">'.js'</span>,<span class="string">'jsx'</span>, <span class="string">'.json'</span>]//一般只在这配置逻辑性文件，防止进行多次查找。资源性的如css，jpg就不要配置了</span><br><span class="line">   mailFiles:[<span class="string">'index'</span>],</span><br><span class="line">   <span class="built_in">alias</span>:&#123;</span><br><span class="line">   xyz$: path.resolve(__dirname, <span class="string">'path/to/file.js'</span>)//路径别名</span><br><span class="line">   &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></p>
+<p>  5.第三方模块只打包一次，放在.dll.js,用webpack.DllPlugin分析，配置DllReferencePlugin<br>  6.控制包文件大小，<br>  7.多进程打包</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/09/jenkins-compile/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1236,262 +1535,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/03/scroll-optimize/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Yajuan Wang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="前端笔记">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/03/scroll-optimize/" itemprop="url">前端性能——JS的防抖和节流</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-03T14:06:48+08:00">
-                2019-01-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>在绑定 scroll 、resize 这类事件时，当它发生时，它被触发的频次非常高，间隔很近。如果事件中涉及到大量的位置计算、DOM 操作、元素重绘等工作且这些工作无法在下一个 scroll 事件触发前完成，就会造成浏览器掉帧。加之用户鼠标滚动往往是连续的，就会持续触发 scroll 事件导致掉帧扩大、浏览器 CPU 使用率增加、用户体验受到影响。</p>
-<p>在滚动事件中绑定回调应用场景也非常多，在图片的懒加载、下滑自动加载数据、侧边浮动导航栏等中有着广泛的应用。</p>
-<h2 id="1-函数防抖（debounce）"><a href="#1-函数防抖（debounce）" class="headerlink" title="1.函数防抖（debounce）"></a>1.函数防抖（debounce）</h2><p>当持续触发事件时，一定时间段内没有再触发事件，事件处理函数才会执行一次，如果设定的时间到来之前，又一次触发了事件，就重新开始延时。如下图，持续触发scroll事件时，并不执行handle函数，当1000毫秒内没有触发scroll事件时，才会延时触发scroll事件。<br>下面通过一段代码来演示一个防抖的例子<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">       <span class="keyword">function</span> debounce(fn, <span class="built_in">wait</span>) &#123;</span><br><span class="line">           var timeout = null;</span><br><span class="line">           <span class="built_in">return</span> <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">               <span class="keyword">if</span>(timeout !== null)</span><br><span class="line">                   clearTimeout(timeout);</span><br><span class="line">               timeout = setTimeout(fn, <span class="built_in">wait</span>);</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       // 处理函数</span><br><span class="line">       <span class="keyword">function</span> <span class="function"><span class="title">handle</span></span>() &#123;</span><br><span class="line">           console.log(Math.random());</span><br><span class="line">       &#125;</span><br><span class="line">       // 滚动事件</span><br><span class="line">       window.addEventListener(<span class="string">'scroll'</span>, debounce(handle, 1000));</span><br><span class="line">   &lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
-<h2 id="2-函数节流（throttle）"><a href="#2-函数节流（throttle）" class="headerlink" title="2.函数节流（throttle）"></a>2.函数节流（throttle）</h2><p> 当持续触发事件时，保证一定时间段内只调用一次事件处理函数.</p>
-<p> 防抖函数确实不错，但是也存在问题，譬如图片的懒加载，我希望在下滑过程中图片不断的被加载出来，而不是只有当我停止下滑时候，图片才被加载出来。又或者下滑时候的数据的 ajax 请求加载也是同理。</p>
-<p> 这个时候，我们希望即使页面在不断被滚动，但是滚动 handler 也可以以一定的频率被触发（譬如 250ms 触发一次），这类场景，就要用到另一种技巧，称为节流函数（throttling）。</p>
-<p> 节流函数，只允许一个函数在 X 毫秒内执行一次。</p>
-<p> 与防抖相比，节流函数最主要的不同在于它保证在 X 毫秒内至少执行一次我们希望触发的事件 handler。</p>
-<p> <strong>时间戳方案</strong><br> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">var throttle = <span class="keyword">function</span>(func, delay) &#123;</span><br><span class="line">           var prev = Date.now();</span><br><span class="line">           <span class="built_in">return</span> <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">               var context = this;</span><br><span class="line">               var args = arguments;</span><br><span class="line">               var now = Date.now();</span><br><span class="line">               <span class="keyword">if</span> (now - prev &gt;= delay) &#123;</span><br><span class="line">                   func.apply(context, args);</span><br><span class="line">                   prev = Date.now();</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">function</span> <span class="function"><span class="title">handle</span></span>() &#123;</span><br><span class="line">           console.log(Math.random());</span><br><span class="line">       &#125;</span><br><span class="line">       window.addEventListener(<span class="string">'scroll'</span>, throttle(handle, 1000));</span><br></pre></td></tr></table></figure></p>
-<p> <strong>定时器方案</strong><br>  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">  </span><br><span class="line">var throttle = <span class="keyword">function</span>(func, delay) &#123;</span><br><span class="line">            var timer = null;</span><br><span class="line">            <span class="built_in">return</span> <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">                var context = this;</span><br><span class="line">                var args = arguments;</span><br><span class="line">                <span class="keyword">if</span> (!timer) &#123;</span><br><span class="line">                    timer = setTimeout(<span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">                        func.apply(context, args);</span><br><span class="line">                        timer = null;</span><br><span class="line">                    &#125;, delay);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">function</span> <span class="function"><span class="title">handle</span></span>() &#123;</span><br><span class="line">            console.log(Math.random());</span><br><span class="line">        &#125;</span><br><span class="line">        window.addEventListener(<span class="string">'scroll'</span>, throttle(handle, 1000));</span><br></pre></td></tr></table></figure></p>
-<p>  <strong>定时间戳+定时器方案</strong><br>  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">var throttle = <span class="keyword">function</span>(func, delay) &#123;</span><br><span class="line">     var timer = null;</span><br><span class="line">     var startTime = Date.now();</span><br><span class="line">     <span class="built_in">return</span> <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">             var curTime = Date.now();</span><br><span class="line">             var remaining = delay - (curTime - startTime);</span><br><span class="line">             var context = this;</span><br><span class="line">             var args = arguments;</span><br><span class="line">             clearTimeout(timer);</span><br><span class="line">              <span class="keyword">if</span> (remaining &lt;= 0) &#123;</span><br><span class="line">                    func.apply(context, args);</span><br><span class="line">                    startTime = Date.now();</span><br><span class="line">              &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    timer = setTimeout(func, remaining);</span><br><span class="line">              &#125;</span><br><span class="line">      &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">handle</span></span>() &#123;</span><br><span class="line">      console.log(Math.random());</span><br><span class="line">&#125;</span><br><span class="line"> window.addEventListener(<span class="string">'scroll'</span>, throttle(handle, 1000));</span><br></pre></td></tr></table></figure></p>
-<h2 id="3-总结"><a href="#3-总结" class="headerlink" title="3.总结"></a>3.总结</h2><p>  <strong>函数防抖：</strong> 将几次操作合并为一此操作进行。原理是维护一个计时器，规定在delay时间后触发函数，但是在delay时间内再次触发的话，就会取消之前的计时器而重新设置。这样一来，只有最后一次操作能被触发。</p>
-<p>  <strong>函数节流：</strong> 使得一定时间内只触发一次函数。原理是通过判断是否到达一定时间来触发函数。</p>
-<p>  <strong>区别：</strong> 函数节流不管事件触发有多频繁，都会保证在规定时间内一定会执行一次真正的事件处理函数，而函数防抖只是在最后一次事件后才触发一次函数。 比如在页面的无限加载场景下，我们需要用户在滚动页面时，每隔一段时间发一次 Ajax 请求，而不是在用户停下滚动页面操作时才去请求数据。这样的场景，就适合用节流技术来实现。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/28/object_is_empty/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Yajuan Wang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="前端笔记">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/08/28/object_is_empty/" itemprop="url">js判断对象是否为空对象的几种方法</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-28T16:48:55+08:00">
-                2018-08-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><strong>1.将json对象转化为json字符串，再判断该字符串是否为”{}”</strong><br>var data = {};<br>var b = (JSON.stringify(data) == “{}”);<br>alert(b);//true</p>
-<p><strong>2.for in 循环判断</strong><br>var obj = {};<br>var b = function() {<br>for(var key in obj) {<br>return false;<br>}<br>return true;<br>}<br>alert(b());//true</p>
-<p><strong>3.jquery的isEmptyObject方法</strong><br>此方法是jquery将2方法(for in)进行封装，使用时需要依赖jquery<br>var data = {};<br>var b = $.isEmptyObject(data);<br>alert(b);//true</p>
-<p><strong>4.Object.getOwnPropertyNames()方法</strong><br>此方法是使用Object对象的getOwnPropertyNames方法，获取到对象中的属性名，存到一个数组中，返回数组对象，我们可以通过判断数组的length来判断此对象是否为空<br>注意：此方法不兼容ie8，其余浏览器没有测试<br>var data = {};<br>var arr = Object.getOwnPropertyNames(data);<br>alert(arr.length == 0);//true<br><strong>5.使用ES6的Object.keys()方法</strong><br>与4方法类似，是ES6的新方法, 返回值也是对象中属性名组成的数组<br>var data = {};<br>var arr = Object.keys(data);<br>alert(arr.length == 0);//true</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1542,7 +1585,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
